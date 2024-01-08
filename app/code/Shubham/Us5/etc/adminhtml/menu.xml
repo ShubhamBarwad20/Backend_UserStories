@@ -1,0 +1,7 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Shubham_Us5::accessor" title="Accessor" module="Shubham_Us5" sortOrder="200"
+            action="us5/custom/accessor" resource="Magento_Backend::content" />
+    </menu>
+</config>

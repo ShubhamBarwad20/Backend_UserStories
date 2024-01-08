@@ -349,6 +349,7 @@ return [
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'Shubham_Us4' => 1,
+        'Shubham_Us5' => 1,
         'Temando_ShippingRemover' => 1
     ]
 ];
