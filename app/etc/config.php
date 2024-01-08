@@ -351,6 +351,7 @@ return [
         'Shubham_Us4' => 1,
         'Shubham_Us5' => 1,
         'Shubham_Us6' => 1,
+        'Shubham_Us7' => 1,
         'Temando_ShippingRemover' => 1
     ]
 ];
