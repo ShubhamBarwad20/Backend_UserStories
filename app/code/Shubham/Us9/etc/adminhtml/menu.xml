@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+   <menu>
+       <add id="Shubham_Us9::first_level_demo"
+           title="User Story 9"
+           module="Shubham_Us9"
+           sortOrder="20"
+           resource="Magento_Backend::content" />
+       <add id="Shubham_Us9::second_level_demo"
+           title="General"
+           module="Shubham_Us9"
+           sortOrder="1"
+           action="admin/system_config/edit/section/humc_fmc"
+           parent="Shubham_Us9::first_level_demo"
+           resource="Magento_Backend::content" />
+   </menu>
+</config>
