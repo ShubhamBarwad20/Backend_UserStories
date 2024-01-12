@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="shubham_us16" translate="label" sortOrder="200">
+            <label>User Story 16</label>
+        </tab>
+        <section id="shubham_us16_section" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Set Colour</label>
+            <tab>humcommerce_core</tab>
+            <resource>Shubham_Us16::config</resource>
+            <group id="shubham_us16_group" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="30" showInDefault="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+               </field>
+               <field id="background_colour" translate="label" type="text" sortOrder="30" showInDefault="1" showInStore="1" canRestore="1">
+                    <label>Background Colour</label>
+                    <frontend_model>Shubham\Us16\Block\Adminhtml\ColorPicker</frontend_model>
+               </field>
+            </group>
+        </section>
+    </system>
+</config>
