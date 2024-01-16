@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main" htmlTag="div" htmlClass="product-info-main">
+                <referenceBlock class="Magento\Catalog\Block\Product\View" name="product.info" template="Shubham_Us20::product/view/form.phtml">
+                    <block class="Magento\Catalog\Block\Product\View" name="product.info.cfa" template="Shubham_Us20::product/view/callForAvaliblity.phtml" after="alert.urls"/>
+                    <!-- <referenceBlock class="Magento\Framework\View\Element\Template" name="product.info.form.options" >
+                        <referenceBlock class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper.bottom" template="Magento_Catalog::product/view/options/wrapper/bottom.phtml">
+                            <referenceBlock class="Magento\Catalog\Block\Product\View" name="product.info.addtocart.additional" template="Shubham_Us20::product/view/addtocart.phtml"/>
+                        </referenceBlock>
+                    </referenceBlock> -->
+                </referenceBlock>
+            </referenceContainer>
+        </referenceContainer>
+    </body>
+</page>
