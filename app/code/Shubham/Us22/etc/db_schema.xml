@@ -1,0 +1,20 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="us22_popup" resource="default" engine="innodb" comment="Us22 Popup">
+        
+        <column xsi:type="smallint" name="popup_id" unsigned="false" identity="true" nullable="false" comment="Popup ID" />
+        <column xsi:type="varchar" name="name" nullable="false" comment="Popup Name" />
+        <column xsi:type="mediumtext" name="content" nullable="false" comment="Popup Content" />
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Popup Creation Time" />
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Popup Modification Time" />
+        <column xsi:type="smallint" name="is_active" nullable="false" default="1" comment="Popup Active" />
+        <column xsi:type="smallint" name="timeout" nullable="false" default="1" comment="Popup Timeout" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="popup_id" />
+        </constraint>
+        <index referenceId="Shubham_Us22_NAME_CONTENT" indexType="fulltext">
+            <column name="name" />
+            <column name="content" />
+        </index>
+    </table>
+</schema>
