@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+        <type name="Magento\Catalog\Model\Product">
+            <plugin name="Product_Plugin" 
+                type="Shubham\Us2\Plugin\ProductPlugin"/>
+        </type>
+        <type name="Magento\Theme\Block\Html\Breadcrumbs">
+            <plugin name="Breadcrumb_Plugin" 
+                type="Shubham\Us2\Plugin\BreadCrumbsPlugin"/>
+        </type>
+        <type name="Magento\Theme\Block\Html\Footer">
+        <plugin name="header_footer_plugin" type="Shubham\Us2\Plugin\HeaderFooterPlugin" sortOrder="20"/>
+            </type>
+        <type name="Magento\Theme\Block\Html\Header">
+            <plugin name="header_footer_plugin" type="Shubham\Us2\Plugin\HeaderFooterPlugin" sortOrder="30"/>
+        </type>
+</config>
