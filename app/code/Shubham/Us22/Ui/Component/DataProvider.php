@@ -18,11 +18,6 @@ use Magento\Cms\Ui\Component\AddFilterInterface;
 class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider
 {
     /**
-     * @var AddFilterInterface[]
-     */
-    private $additionalFilterPool;
-
-    /**
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName
@@ -45,7 +40,6 @@ class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvi
         FilterBuilder $filterBuilder,
         array $meta = [],
         array $data = [],
-        array $additionalFilterPool = []
     ) {
         parent::__construct(
             $name,
@@ -59,18 +53,19 @@ class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvi
             $data
         );
 
-        $this->additionalFilterPool = $additionalFilterPool;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function addFilter(Filter $filter)
+    protected function searchResultToOutput(\Magento\Framework\Api\SearchResultsInterface $searchResult):array
     {
-        if (!empty($this->additionalFilterPool[$filter->getField()])) {
-            $this->additionalFilterPool[$filter->getField()]->addFilter($this->searchCriteriaBuilder, $filter);
-        } else {
-            parent::addFilter($filter);
-        }
+        $arrItems = [];
+
+        $arrItems['items'] = [];
+        
+        /** @var Popup $item */
+
+        $arrItems['totalRecords'] = $searchResult->getTotalCount();
+
+        return $arrItems;
     }
+
 }

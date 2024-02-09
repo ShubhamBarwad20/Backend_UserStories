@@ -7,7 +7,7 @@
             module="Shubham_Us22"
             sortOrder="0"
             parent="Magento_Backend::content_elements"
-            action="popup/index/index"
+            action="shubham_us22/index/index"
             resource="Shubham_Us22::popup" />
     </menu>
 </config>

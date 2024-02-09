@@ -2,8 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
-        <route id="shubham_popup" frontName="popup">
-            <module name="Shubham_Us22" before="Magento_Backend" />
+        <route id="shubham_popup" frontName="us22">
+            <module name="Shubham_Us22" before="shubham_us22" />
         </route>
     </router>
 </config>

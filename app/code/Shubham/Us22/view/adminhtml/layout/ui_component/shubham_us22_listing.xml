@@ -26,7 +26,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>Shubham_Us22::popup</aclResource>
-        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="shubham_us22_listing_data_source">
+        <dataProvider class="Shubham\Us22\Ui\Component\DataProvider" name="shubham_us22_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>popup_id</primaryFieldName>
@@ -162,12 +162,12 @@
                 <label translate="true">Modified</label>
             </settings>
         </column>
-        <!-- <actionsColumn name="actions" class="Us22\Popup\Ui\Component\Listing\Column\PopupActions">
+        <actionsColumn name="actions" class="Shubham\Us22\Ui\Component\Listing\Column\PopupActions">
             <settings>
                 <indexField>popup_id</indexField>
                 <resizeEnabled>false</resizeEnabled>
                 <resizeDefaultWidth>107</resizeDefaultWidth>
             </settings>
-        </actionsColumn> -->
+        </actionsColumn>
     </columns>
 </listing>

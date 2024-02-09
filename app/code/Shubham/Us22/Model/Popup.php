@@ -5,9 +5,8 @@ namespace Shubham\Us22\Model;
 
 use Magento\Framework\Model\AbstractModel;
 use Shubham\Us22\Api\Data\PopupInterface;
-use Magento\Framework\Api\CustomAttributesDataInterface;
 
-class Popup extends AbstractModel implements PopupInterface, CustomAttributesDataInterface
+class Popup extends AbstractModel implements PopupInterface
 {
     private const POPUP_ID = 'popup_id';
     private const NAME = 'name';
@@ -99,19 +98,5 @@ class Popup extends AbstractModel implements PopupInterface, CustomAttributesDat
     public function getCustomAttributes()
     {
         return [];
-    }
-
-    public function getCustomAttribute($attributeCode)
-    {
-        return null;
-    }
-    public function setCustomAttribute($attributeCode, $attributeValue)
-    {
-        // Implementation of setCustomAttribute method
-    }
-
-    public function setCustomAttributes(array $attributes)
-    {
-        // Implementation of setCustomAttributes method
     }
 }
