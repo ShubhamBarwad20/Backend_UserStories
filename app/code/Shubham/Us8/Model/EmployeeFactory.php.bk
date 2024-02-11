@@ -1,0 +1,31 @@
+<?php
+
+namespace Shubham\Us8\Model;
+
+use Magento\Framework\ObjectManagerInterface;
+
+
+
+class EmployeeFactory
+{
+
+    /**
+     * @var ObjectManagerInterface
+     */
+    protected $objectManager;
+
+    protected function _construct(ObjectManagerInterface $objectManager)
+    {
+        $this->objectManager = $objectManager;
+    }
+
+    /**
+     * Create Function
+     * @param array $data
+     * @return \Shubham\Us8\Model\EmployeeModel
+     */
+    public function create(array $data = [])
+    {
+        return $this->objectManager->create('Shubham\Us8\Model\EmployeeModel', $data);
+    }
+}
