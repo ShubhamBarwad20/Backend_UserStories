@@ -3,7 +3,7 @@
     <body>
         <referenceContainer name="main">
             <block class="Magento\Framework\View\Element\Template" template="Shubham_Us8::employeeForm.phtml" />
-            <block class="Magento\Framework\View\Element\Template" template="Shubham_Us8::employeeTable.phtml" />
+            <block class="Shubham\Us8\Block\EmployeeTable" template="Shubham_Us8::employeeTable.phtml" />
         </referenceContainer>
     </body>
 </page>
