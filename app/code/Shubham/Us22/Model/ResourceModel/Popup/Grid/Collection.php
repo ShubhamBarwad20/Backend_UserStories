@@ -1,5 +1,4 @@
-<?php declare(strict_types=1);
-
+<?php
 namespace Shubham\Us22\Model\ResourceModel\Popup\Grid;
 
 use Magento\Framework\Api\Search\SearchResultInterface;
@@ -7,17 +6,12 @@ use Magento\Framework\Api\Search\AggregationInterface;
 use Shubham\Us22\Model\ResourceModel\Popup\Collection as PopupCollection;
 use Magento\Framework\Data\Collection\Db\FetchStrategyInterface;
 use Magento\Framework\Data\Collection\EntityFactoryInterface;
-use Magento\Framework\EntityManager\MetadataPool;
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
-use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
+use Magento\Framework\DB\Adapter\AdapterInterface;
 
-/**
- * Class Collection
- * Collection for displaying grid of sales documents
- */
 class Collection extends PopupCollection implements SearchResultInterface
 {
     /**
@@ -30,24 +24,6 @@ class Collection extends PopupCollection implements SearchResultInterface
      */
     protected AggregationInterface $aggregations;
 
-    /**
-     * @param EntityFactoryInterface $entityFactory
-     * @param LoggerInterface $logger
-     * @param FetchStrategyInterface $fetchStrategy
-     * @param ManagerInterface $eventManager
-     * @param StoreManagerInterface $storeManager
-     * @param MetadataPool $metadataPool
-     * @param mixed|null $mainTable
-     * @param string $eventPrefix
-     * @param mixed $eventObject
-     * @param mixed $resourceModel
-     * @param string $model
-     * @param mixed|null $connection
-     * @param AbstractDb|null $resource
-     * @param TimezoneInterface|null $timeZone
-     *
-     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
-     */
     public function __construct(
         EntityFactoryInterface $entityFactory,
         LoggerInterface $logger,
@@ -59,23 +35,22 @@ class Collection extends PopupCollection implements SearchResultInterface
         $resourceModel,
         TimezoneInterface $timeZone,
         $model = \Magento\Framework\View\Element\UiComponent\DataProvider\Document::class,
-        \Magento\Framework\DB\Adapter\AdapterInterface $connection=null,
-        AbstractDb $resource=null,
-    )
-    {
+        AdapterInterface $connection = null,
+        AbstractDb $resource = null,
+    ) {
+        $this->_eventPrefix = $eventPrefix;
+        $this->_eventObject = $eventObject;
+        $this->_init($model, $resourceModel);
+        $this->setMainTable($mainTable);
+        $this->timeZone = $timeZone;
         parent::__construct(
-            $entityFactory,
+            $entityFactory, 
             $logger,
             $fetchStrategy,
             $eventManager,
             $connection,
             $resource
         );
-        $this->_eventPrefix = $eventPrefix;
-        $this->_eventObject = $eventObject;
-        $this->_init($model, $resourceModel);
-        $this->setMainTable($mainTable);
-        $this->timeZone = $timeZone;
     }
 
     /**
@@ -83,7 +58,7 @@ class Collection extends PopupCollection implements SearchResultInterface
      */
     public function addFieldToFilter($field, $condition = null)
     {
-        if ($field === 'creation_at' || $field === 'update_at') {
+        if ($field === 'createdt_at' || $field === 'updated_at') {
             if (is_array($condition)) {
                 foreach ($condition as $key => $value) {
                     $condition[$key] = $this->timeZone->convertConfigTimeToUtc($value);

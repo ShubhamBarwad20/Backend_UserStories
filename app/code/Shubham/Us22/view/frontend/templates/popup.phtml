@@ -1,0 +1,26 @@
+<?php
+
+use Magento\Framework\View\Element\Template;
+use Shubham\Us22\ViewModel\PopupViewModel;
+
+/** @var Template $block */
+/** @var PopupViewModel $viewModel */
+
+$viewModel = $block->getData('view_model');
+
+$popup = $viewModel->getPopup();
+?>
+
+<!-- <button type="button" class="action" data-trigger="trigger">
+    <span data-bind="i18n: 'Click Here'"></span>
+</button> -->
+
+<div data-bind="mageInit: {
+        'Shubham_Us22/js/popup':{
+            'timeout': '<?= /** @noEscape */ $popup->getTimeout() ?>',
+            'content': '<?= /** @noEscape */ $popup->getContent()? $popup->getContent() : 'Content Not Set' ?>'
+        }}">
+    <!-- <div class="content">
+        <?= $popup->getContent()? $popup->getContent() : 'Content Not Set' ?>
+    </div> -->
+</div>

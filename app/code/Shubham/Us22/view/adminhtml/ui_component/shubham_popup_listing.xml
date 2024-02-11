@@ -2,7 +2,7 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">shubham_us22_listing.shubham_us22_listing_data_source</item>
+            <item name="provider" xsi:type="string">shubham_popup_listing.shubham_popup_listing_data_source</item>
         </item>
     </argument>
     <settings>
@@ -13,12 +13,12 @@
                 <label translate="true">Add New Popup</label>
             </button>
         </buttons>
-        <spinner>shubham_us22_columns</spinner>
+        <spinner>shubham_popup_columns</spinner>
         <deps>
-            <dep>shubham_us22_listing.shubham_us22_listing_data_source</dep>
+            <dep>shubham_popup_listing.shubham_popup_listing_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="shubham_us22_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="shubham_popup_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">popup_id</param>
@@ -26,7 +26,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>Shubham_Us22::popup</aclResource>
-        <dataProvider class="Shubham\Us22\Ui\Component\DataProvider" name="shubham_us22_listing_data_source">
+        <dataProvider class="Shubham\Us22\Ui\Component\DataProvider" name="shubham_popup_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>popup_id</primaryFieldName>
@@ -41,6 +41,11 @@
         <columnsControls name="columns_controls"/>
         <filterSearch name="fulltext"/>
         <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="observers" xsi:type="array">
+                    <item name="column" xsi:type="string">column</item>
+                </item>
+            </argument>
             <settings>
                 <templates>
                     <filters>
@@ -78,20 +83,10 @@
                     <label translate="true">Enable</label>
                 </settings>
             </action>
-            <action name="edit">
-                <settings>
-                    <callback>
-                        <target>editSelected</target>
-                        <provider>shubham_us22_listing.shubham_us22_listing.shubham_us22_columns_editor</provider>
-                    </callback>
-                    <type>edit</type>
-                    <label translate="true">Edit</label>
-                </settings>
-            </action>
         </massaction>
         <paging name="listing_paging"/>
     </listingToolbar>
-    <columns name="shubham_us22_columns">
+    <columns name="shubham_popup_columns">
         <settings>
             <editorConfig>
                 <param name="clientConfig" xsi:type="array">
@@ -100,11 +95,11 @@
                 </param>
                 <param name="indexField" xsi:type="string">popup_id</param>
                 <param name="enabled" xsi:type="boolean">true</param>
-                <param name="selectProvider" xsi:type="string">shubham_us22_listing.shubham_us22_listing.shubham_us22_columns.ids</param>
+                <param name="selectProvider" xsi:type="string">shubham_popup_listing.shubham_popup_listing.shubham_popup_columns.ids</param>
             </editorConfig>
             <childDefaults>
                 <param name="fieldAction" xsi:type="array">
-                    <item name="provider" xsi:type="string">shubham_us22_listing.shubham_us22_listing.shubham_us22_columns_editor</item>
+                    <item name="provider" xsi:type="string">shubham_popup_listing.shubham_popup_listing.shubham_popup_columns_editor</item>
                     <item name="target" xsi:type="string">startEdit</item>
                     <item name="params" xsi:type="array">
                         <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
@@ -116,6 +111,8 @@
         <selectionsColumn name="ids">
             <settings>
                 <indexField>popup_id</indexField>
+                <resizeEnabled>false</resizeEnabled>
+                <resizeDefaultWidth>55</resizeDefaultWidth>
             </settings>
         </selectionsColumn>
         <column name="popup_id">
@@ -139,7 +136,7 @@
         </column>
         <column name="is_active" component="Magento_Ui/js/grid/columns/select">
             <settings>
-                <!-- <options class="Us22\Popup\Ui\Source\Listing\IsActive"/> -->
+                <options class="Shubham\Us22\Ui\Source\Listing\Column\IsActive"/>
                 <filter>select</filter>
                 <editor>
                     <editorType>select</editorType>
@@ -148,14 +145,14 @@
                 <label translate="true">Status</label>
             </settings>
         </column>
-        <column name="creation_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
             <settings>
                 <filter>dateRange</filter>
                 <dataType>date</dataType>
                 <label translate="true">Created</label>
             </settings>
         </column>
-        <column name="update_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
+        <column name="updated_at" class="Magento\Ui\Component\Listing\Columns\Date" component="Magento_Ui/js/grid/columns/date">
             <settings>
                 <filter>dateRange</filter>
                 <dataType>date</dataType>

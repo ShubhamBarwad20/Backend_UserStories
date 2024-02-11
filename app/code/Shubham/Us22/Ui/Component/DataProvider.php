@@ -1,20 +1,12 @@
-<?php declare(strict_types=1);
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
+<?php
 namespace Shubham\Us22\Ui\Component;
 
-use Magento\Framework\Api\Filter;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\Search\SearchCriteriaBuilder;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Element\UiComponent\DataProvider\Reporting;
-use Magento\Cms\Ui\Component\AddFilterInterface;
+use Magento\Framework\Api\Search\SearchResultInterface;
 
-/**
- * DataProvider for cms ui.
- */
 class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider
 {
     /**
@@ -27,8 +19,6 @@ class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvi
      * @param FilterBuilder $filterBuilder
      * @param array $meta
      * @param array $data
-     * @param array $additionalFilterPool
-     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
      */
     public function __construct(
         $name,
@@ -39,7 +29,7 @@ class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvi
         RequestInterface $request,
         FilterBuilder $filterBuilder,
         array $meta = [],
-        array $data = [],
+        array $data = []
     ) {
         parent::__construct(
             $name,
@@ -54,18 +44,17 @@ class DataProvider extends \Magento\Framework\View\Element\UiComponent\DataProvi
         );
 
     }
-
-    protected function searchResultToOutput(\Magento\Framework\Api\SearchResultsInterface $searchResult):array
+    protected function searchResultToOutput(SearchResultInterface $searchResult) : array
     {
         $arrItems = [];
-
-        $arrItems['items'] = [];
-        
         /** @var Popup $item */
+        $arrItems['items'] = [];
+        foreach ($searchResult->getItems() as $item) {
+            $arrItems['items'][] = $item->getData();
+        }
 
         $arrItems['totalRecords'] = $searchResult->getTotalCount();
 
         return $arrItems;
     }
-
 }

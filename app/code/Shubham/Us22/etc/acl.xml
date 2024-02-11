@@ -5,9 +5,7 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::content">
                     <resource id="Magento_Backend::content_elements">
-                        <resource id="Magento_Cms::page" title="Pages" translate="title" sortOrder="10">
-                            <resource id="Shubham_Us22::popup" title="Popups" translate="title" sortOrder="10"/>
-                        </resource>
+                        <resource id="Shubham_Us22::popup" title="Popups" translate="title" sortOrder="15"/>
                     </resource>
                 </resource>
             </resource>

@@ -1,21 +1,17 @@
 <?php
-declare(strict_types=1);
 
-namespace Shubham\Us22\Ui\Source\Listing\Column;
+namespace Shubham\Us22\Ui\Component\Listing\Column;
 
-use Magento\Framework\Escaper;
+use Laminas\Escaper\Escaper;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
-
 class PopupActions extends Column
 {
-    /** Url path */
     private const URL_PATH_EDIT = 'popup/index/edit';
     private const URL_PATH_DELETE = 'popup/index/delete';
-
 
     /**
      * @var \Magento\Framework\UrlInterface
@@ -32,12 +28,10 @@ class PopupActions extends Column
     /**
      * @param ContextInterface $context
      * @param UiComponentFactory $uiComponentFactory
-     * @param UrlBuilder $actionUrlBuilder
      * @param UrlInterface $urlBuilder
      * @param array $components
      * @param array $data
      * @param string $editUrl
-     * @param \Magento\Cms\ViewModel\Page\Grid\UrlBuilder|null $scopeUrlBuilder
      */
     public function __construct(
         ContextInterface $context,
@@ -46,8 +40,7 @@ class PopupActions extends Column
         Escaper $escaper,
         array $components = [],
         array $data = [],
-        string $editUrl = self::URL_PATH_EDIT,
-        
+        string $editUrl = self::URL_PATH_EDIT
     ) {
         $this->urlBuilder = $urlBuilder;
         $this->editUrl = $editUrl;
@@ -55,7 +48,7 @@ class PopupActions extends Column
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
-    public function prepareDataSource(array $dataSource):array
+    public function prepareDataSource(array $dataSource): array
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
@@ -75,10 +68,12 @@ class PopupActions extends Column
                         ],
                         'post' => true,
                     ];
-                }
+                } 
             }
         }
 
         return $dataSource;
     }
+
+   
 }
