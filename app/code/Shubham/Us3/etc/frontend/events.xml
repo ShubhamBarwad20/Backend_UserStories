@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-    <observer name="Product_Viewed"
-        instance="Shubham\Us3\" />
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_controller_product_view">
+        <observer name="Product_Viewed" instance="Shubham\Us3\Observer\ProductViewed" />
+    </event>
 </config>

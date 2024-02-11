@@ -11,10 +11,8 @@ use Psr\Log\LoggerInterface;
 class ProductViewed implements ObserverInterface
 {
     private $logger;
-    private $observer;
-    public function __construct(ObserverInterface $observer, LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger)
     {
-        $this->observer = $observer;
         $this->logger = $logger;
         
     }
@@ -23,6 +21,12 @@ class ProductViewed implements ObserverInterface
     {
         $product= $observer->getEvent()->getProduct();
         $this->logger->info($product->getName());
-        
+        $this->logger->info($product->getSku());
+        $this->logger->info($product->getFinalPrice());
+        // Log product quantity
+        $this->logger->info($product->getQty());
+        // Log product sellable quantity
+        $this->logger->info($product->getSellableQty());
+        return $observer;
     }
 }
