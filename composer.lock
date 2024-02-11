@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc3e36104d76e4d74172f2588fd64ce1",
+    "content-hash": "484dbc4df8f2b99b516469b9857867fb",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -20601,6 +20601,66 @@
             "time": "2023-02-13T17:21:24+00:00"
         },
         {
+            "name": "stripe/stripe-php",
+            "version": "v7.128.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c704949c49b72985c76cc61063aa26fefbd2724e",
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.5.0",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "support": {
+                "issues": "https://github.com/stripe/stripe-php/issues",
+                "source": "https://github.com/stripe/stripe-php/tree/v7.128.0"
+            },
+            "time": "2022-05-05T17:18:02+00:00"
+        },
+        {
             "name": "symfony/config",
             "version": "v6.4.0",
             "source": {
@@ -22989,6 +23049,70 @@
                 "source": "https://github.com/thecodingmachine/safe/tree/v2.5.0"
             },
             "time": "2023-04-05T11:54:14+00:00"
+        },
+        {
+            "name": "tnw/marketing",
+            "version": "2.10.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PowerSync/TNW_Marketing.git",
+                "reference": "52a9a2a498e8082c0718ff5699ee4ab0a163da89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PowerSync/TNW_Marketing/zipball/52a9a2a498e8082c0718ff5699ee4ab0a163da89",
+                "reference": "52a9a2a498e8082c0718ff5699ee4ab0a163da89",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~8.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "TNW\\Marketing\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "gpl-3.0"
+            ],
+            "description": "PowerSync  Marketing",
+            "support": {
+                "issues": "https://github.com/PowerSync/TNW_Marketing/issues",
+                "source": "https://github.com/PowerSync/TNW_Marketing/tree/2.10.4"
+            },
+            "time": "2023-12-12T10:58:46+00:00"
+        },
+        {
+            "name": "tnw/module-stripe",
+            "version": "2.3.26",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/tnw/module-stripe/tnw-module-stripe-2.3.26.0.zip",
+                "shasum": "9ea508a60942107fc219e701e6471dd7fe1276d4"
+            },
+            "require": {
+                "magento/framework": ">100",
+                "stripe/stripe-php": "^7",
+                "tnw/marketing": "~2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "TNW\\Stripe\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Stripe Payments for Magento 2"
         },
         {
             "name": "tubalmartin/cssmin",
